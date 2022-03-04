@@ -1,0 +1,28 @@
+#connexion{
+    border: solid black 3px;
+    width:300px;
+    padding-right:20px;
+    padding-left: 20px;
+}
+
+input{
+    background-color: #D8E1E2;
+    width: 96%;
+    height: 30px;
+}
+
+button{
+    background-color: grey;
+    margin-right:20px;
+    margin-left: 20px;
+    width: 96%;
+    height: 30px;
+    margin-top: 100px;
+    margin-bottom: 40px;
+}
+
+#boutonConnexionFlex{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
