@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <link rel="stylesheet" href="connexion.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/connexion.css">
     <title>Document</title>
 </head>
 <body>
     <form id="connexion">
         <h1>Connexion</h1>
-        <p>Nom d'utilisateur  :</p>
-        <input placeholder="Nom d'utilisateur"></input>
-        <p>Mot de passe :</p>
+        <label for="username">Nom d'utilisateur  :</label>
+        <input id="username" placeholder="Nom d'utilisateur"></input>
+        <label for="password">Mot de passe :</label>
         <div id="boutonConnexionFlex">
-            <input placeholder="Mot de passe"></input>
+            <input id="password" placeholder="Mot de passe"></input>
             <button>Soumettre</button>
         </div>
     </form>
