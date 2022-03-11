@@ -1,0 +1,20 @@
+button {
+    cursor: pointer;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1em 2em;
+}
+
+.back-button {
+    width: 2em;
+    aspect-ratio: 1;
+    margin-right: auto;
+}
+
+.main-title {
+    margin-right: auto;
+}
