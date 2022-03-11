@@ -1,7 +1,57 @@
-#iconEdit {
-    display: block;
-    height: 22px;
-    width: 85px;
-    font-size: 30px;
-    background-color: black;
+#container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid;
+    width: 90%;
+    height: 80vh;
+    margin: auto;
+}
+
+.campagne {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 1vh;
+}
+
+.grey{
+    background: #e0e4de;
+}
+
+.green {
+    background: #3e9a10;
+}
+
+.icons {
+    display: flex;
+    justify-content: center;
+}
+
+.titreCampagne {
+    margin: auto;
+}
+
+.progressBar{
+    --progress: 10%;
+    display: flex;
+    justify-content: center;
+    background: white;
+    width: 40%;
+    position: relative;
+}
+
+.progressBar::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    right: calc(100% - var(--progress));
+    background: brown;
+}
+
+.modifyIcon:hover {
+    color: green;
+}
+
+.deleteIcon:hover {
+    color: red;
 }
