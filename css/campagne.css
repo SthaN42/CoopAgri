@@ -1,0 +1,46 @@
+#gauge {}
+
+#ressources {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.ressource {
+    background-color: darkolivegreen;
+    width: 10%;
+    text-align: center;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+h1 {
+    text-align: center;
+}
+
+#gauge {
+    --progress: 0%;
+    width: 40%;
+    height: 50px;
+    aspect-ratio: 1;
+    background-color: #90A4AE;
+    position: relative;
+    border-radius: 25px;
+}
+
+#gauge::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    right: calc(100% - var(--progress));
+    background-color: green;
+    border-radius: 25px;
+}
+
+#details {
+    position: absolute;
+    border: 1px solid #333;
+    background: #333;
+    padding: 3px;
+    display: none;
+    color: #fff;
+}

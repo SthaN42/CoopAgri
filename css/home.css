@@ -1,0 +1,14 @@
+#ressources {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.ressource {
+    background-color: darkolivegreen;
+    width: 10%;
+    text-align: center;
+}
+
+.ressource >*:not(:last-child) {
+    padding-bottom: 10px;
+}
