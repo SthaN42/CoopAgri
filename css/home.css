@@ -32,12 +32,16 @@
 }
 
 .progressBar{
-    --progress: 10%;
+    --progress: 0%;
     display: flex;
     justify-content: center;
     background: white;
     width: 40%;
     position: relative;
+}
+
+.progressBar>p{
+    z-index: 1;
 }
 
 .progressBar::before {
