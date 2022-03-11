@@ -44,3 +44,7 @@ h1 {
     display: none;
     color: #fff;
 }
+
+#error {
+    color: red;
+}
