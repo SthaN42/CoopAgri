@@ -1,4 +1,7 @@
 jQuery(function () {
+    // tableau des éléments de la campagne
+    let elements = [];
+
     // bouton d'ajout d'éléments de campagne
     $("#addElementBtn").on("click", () => {
         let product = prompt("Nom du produit :");
@@ -15,6 +18,7 @@ jQuery(function () {
         return false;
     });
 
+    // ajout d'éléments dans la campagne
     function addElement(element) {
         let newElem = $("<div/>");
         newElem
@@ -25,12 +29,25 @@ jQuery(function () {
                 )
             )
             .addClass("campain-element");
-
         $("#elements-container").append(newElem);
+        elements.push(element);
     }
 
+    // permet de vérifier si la quantité de l'élément à ajouter est bien un entier
     function isNumber(str) {
         if (typeof str != "string") return false;
         return !isNaN(str) && !isNaN(parseFloat(str));
     }
+
+    $("#addCampainForm").on("submit", (e) => {
+        e.preventDefault();
+
+        let data = $("#addCampainForm").serializeArray();
+        data.push({
+            name: "elements",
+            value: elements,
+        });
+
+        console.table(data);
+    });
 });
