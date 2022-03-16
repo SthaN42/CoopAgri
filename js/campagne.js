@@ -1,8 +1,6 @@
-let ressources = [
-    {
-        name: "Blé"
-    }
-]
+let ressources = {
+    ble: "Blé"
+}
 const maxAmount = 100
 let exploitants = [
     {
@@ -19,7 +17,7 @@ let exploitants = [
     }
 ]
 
-this.gaugeStatus = function (exploitants) {
+this.gaugeStatus = function () {
     let sumsAmount = 0
 
     for (let index = 0; index < exploitants.length; index++) {
@@ -27,12 +25,12 @@ this.gaugeStatus = function (exploitants) {
     }
 
     if (sumsAmount <= maxAmount) {
-        $("h1").append(
+        $("#gauge_icon").prepend(
             `<div id="gauge" style="--progress:` + sumsAmount + `%;"></div>`
         )
     }
     else {
-        $("h1").append(
+        $("#gauge_icon").prepend(
             `<p id="error">ERREUR : Le nombre a été dépassé</p>`
         )
     }
@@ -49,7 +47,7 @@ this.details = function () {
             $(this).attr('title', '');
             $("body").append(
                 `<p id='details'> Exploitant(s) <br/>` +
-                showExploitants(exploitants) + `</p>`
+                showExploitants() + `</p>`
             );
             $("#details")
                 .css("top", (e.pageY - xOffset) + "px")
@@ -69,7 +67,7 @@ this.details = function () {
     });
 };
 
-this.showExploitants = function (exploitants) {
+this.showExploitants = function () {
     if (exploitants.length != 0) {
         let exploitant = exploitants[0].name + ': '
             + exploitants[0].amount + ' / ' + maxAmount + '<br/>'
@@ -88,7 +86,7 @@ this.ressource = function () {
         `<div>
         <div id="ressources">
             <div class="ressource" title="ress">
-                <p>`+ ressources[0].name + `</p>
+                <p>`+ ressources.ble + `</p>
                 <p> 60 / 100 </p>
                 <p>TONNES</p>
             </div>
@@ -97,12 +95,19 @@ this.ressource = function () {
     )
 }
 
-this.getRessourceName = function () {
+this.deleteButton = function () {
+    let deleteButton = $(".deleteIcon");
 
+    deleteButton.each(function (index, element) {
+        $(element).on("click", function () {
+            $(element).closest(".campagne").remove()
+        })
+    })
 }
 
 $(document).ready(function () {
-    gaugeStatus(exploitants);
-    details();
+    gaugeStatus();
     ressource();
+    deleteButton();
+    details();
 });
