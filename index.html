@@ -17,5 +17,13 @@
     <a href="pages/connexion.html">Connexion</a>
     <a href="pages/ajout_campagne.html">Ajouter une campagne</a>
 </body>
-
+<script>
+    $.getJSON("http://vps.e-mingo.net/coopagri/app/index.php?c=api&n=campagne", function(response){
+        let data = JSON.stringify(response);
+        console.log(data);
+    })
+    .fail(function(error){
+        console.log("La requête s'est terminée en échec. Infos : " + JSON.stringify(error));
+    })
+</script>
 </html>
