@@ -1,11 +1,11 @@
 $(function () {
 
     $.getJSON("http://vps.e-mingo.net/coopagri/app/index.php?c=api&n=Campagne&where=id|1", function (response) {
-        let quantiteMax = JSON.stringify(response.result[0].previsions[0].campagne.previsions[0].quantite);
+        let quantiteMax = response.result[0].previsions[0].campagne.previsions[0].quantite;
         let valeurActuelle = "450";
-        let pourcent = (quantiteMax * 100) / valeurActuelle;
+        let pourcent = (valeurActuelle * 100) / quantiteMax;
         //let campagne = JSON.stringify(response.result[0].previsions[0].campagne);
-        console.log(quantite1);
+        console.log(pourcent);
         //console.log(campagne.previsions[0].quantite);
         /*for (let i = 0; i < previsions.length; i++) {
             console.log(previsions[i].quantite);
@@ -16,7 +16,7 @@ $(function () {
         $('.campagne').find(".progressBar").append("<p class='contenant'>");
         $('.contenant').append("<span class='barValue'>" + valeurActuelle + "</span>T/<span class='maxBar'>" + quantiteMax + "</span>T");
         $(".progressBar").each(function (index, element) {
-            $(element).css("--progress", pourcent.toString());    
+            $(element).css("--progress", pourcent.toString() + "%");    
         });
     })
         .fail(function (error) {
