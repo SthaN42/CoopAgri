@@ -1,53 +1,30 @@
 jQuery(function () {
-    // tableau des éléments de la campagne
-    let elements = [];
 
-    // bouton d'ajout d'éléments de campagne
-    $("#addElementBtn").on("click", () => {
-        let product = prompt("Nom du produit :");
-        if (product) {
-            let quantity = prompt("Quantité (en tonnes) :");
-            if (isNumber(quantity)) {
-                let element = {
-                    product: product,
-                    quantity: quantity,
-                };
-                addElement(element);
-            }
-        }
-        return false;
-    });
-
-    // ajout d'éléments dans la campagne
-    function addElement(element) {
-        let newElem = $("<div/>");
-        newElem
-            .append($("<p/>", { text: element.product }))
-            .append(
-                $("<p/>", { text: element.quantity }).append(
-                    $("<span/>", { text: " Tonnes" })
-                )
-            )
-            .addClass("campain-element");
-        $("#elements-container").append(newElem);
-        elements.push(element);
-    }
-
-    // permet de vérifier si la quantité de l'élément à ajouter est bien un entier
-    function isNumber(str) {
-        if (typeof str != "string") return false;
-        return !isNaN(str) && !isNaN(parseFloat(str));
-    }
-
+    // créer une nouvelle campagne
     $("#addCampainForm").on("submit", (e) => {
         e.preventDefault();
-
-        let data = $("#addCampainForm").serializeArray();
-        data.push({
-            name: "elements",
-            value: elements,
-        });
-
-        console.table(data);
+        
+        let campain = {
+            debut: new Date($("#debut").val()),
+            fin: new Date($("#fin").val()),
+            libelle: $("#libelle").val(),
+            description: $("#description").val(),
+        }
+        
+        if (campain.fin > campain.debut) {
+            let data = $.param(campain);
+            
+            let url = "http://vps.e-mingo.net/coopagri/app/index.php?c=api&a=set&n=Campagne&entId=0&" + data;
+            
+            $.ajax({
+                method: "POST",
+                url: url,
+                success: () => {window.location.href = "../pages/home.html"},
+                fail: () => {alert("Erreur lors de l'envoi du formulaire")},
+            });
+        } else {
+            $(".error").remove();
+            $("#fin").parent().append($("<strong class='error'> La date de fin doit être supérieure à la date de début.</strong>"))
+        }
     });
 });

@@ -34,17 +34,20 @@
         <main>
             <form id="addCampainForm">
                 <div>
-                    <label for="campainName">Nom de la campagne</label>
-                    <input name="campainName" id="campainName" type="text" placeholder="Nom de la nouvelle campagne" required />
+                    <label for="debut">Date de début de campagne</label>
+                    <input name="debut" id="debut" type="date" required />
                 </div>
                 <div>
-                    <p>Éléments de la campagne</p>
-                    <div id="elements-container"></div>
-                    <button role="dialog" id="addElementBtn">+</button>
+                    <label for="fin">Date de fin de campagne</label>
+                    <input name="fin" id="fin" type="date" required />
                 </div>
                 <div>
-                    <label for="campainEndDate">Date de fin de campagne</label>
-                    <input name="campainEndDate" id="campainEndDate" type="date" required />
+                    <label for="libelle">Nom de la campagne</label>
+                    <input name="libelle" id="libelle" type="text" placeholder="Nom de la nouvelle campagne" required />
+                </div>
+                <div>
+                    <label for="description">Description de la campagne</label>
+                    <textarea name="description" id="description" placeholder="Description de la nouvelle campagne" required></textarea>
                 </div>
                 <button id="submit-button">Valider</button>
             </form>
