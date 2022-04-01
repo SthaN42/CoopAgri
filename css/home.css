@@ -14,8 +14,6 @@ thead {
 tr{
     display: block;
     width: 100%;
-    /*display: flex;
-    justify-content:space-around;*/
 }
 
 th,td {
@@ -42,27 +40,6 @@ th,td {
     display: flex;
     justify-content: center;
 }
-
-/*.progressBar{
-    --progress: 0%;
-    display: flex;
-    justify-content: center;
-    background: white;
-    width: 40%;
-    position: relative;
-}
-
-.progressBar>p{
-    z-index: 1;
-}
-
-.progressBar::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    right: calc(100% - var(--progress));
-    background: brown;
-}*/
 
 .modifyIcon:hover {
     color: green;
