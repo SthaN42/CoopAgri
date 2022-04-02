@@ -1,5 +1,4 @@
 $(function () {
-
     $.getJSON("http://vps.e-mingo.net/coopagri/app/index.php?c=api&n=Campagne", function (response) {
         let indexCampagne = 0;
         
@@ -16,9 +15,7 @@ $(function () {
             let nomCampagne = $("<td class='titreCampagne'>");
             let exploitant = $("<td class='exploitant'>");
             let indexExploitant = 0;
-            let boutons = $("<td class='icons'>");
-            let modifyButton = $("<i class='fa-solid fa-pen-to-square modifyIcon'>");
-            let deleteButton = $("<i class='fa-solid fa-trash-can deleteIcon'>");
+            let modifyButton = $("<td class='fa-solid fa-pen-to-square modifyIcon'>");
 
             //Intitulé campagne
             nomCampagne.append(resultat.libelle);
@@ -29,13 +26,10 @@ $(function () {
                 indexExploitant++;
             }     
             
-            //Création des boutons
-            boutons.append(modifyButton).append(deleteButton);
-            
             //Ajout affichage
             campagne.append(nomCampagne)
                     .append(exploitant)
-                    .append(boutons);
+                    .append(modifyButton);
             
             //Ajout de la campagne
             listeCampagnes.append(campagne);
@@ -46,14 +40,5 @@ $(function () {
     })
     .fail(function (error) {
         console.log("La requête s'est terminée en échec. Infos : " + JSON.stringify(error));
-    })
-
-    let deleteButton = $(".deleteIcon");
-
-    //Ecoute pour chaque bouton Delete
-    deleteButton.each(function (index, element) {
-        $(element).on("click", function () {
-            $(element).closest(".campagne").remove()
-        })
     })
 });

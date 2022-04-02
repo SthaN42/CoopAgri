@@ -36,15 +36,10 @@ th,td {
     background: #3e9a10;
 }
 
-.icons {
-    display: flex;
-    justify-content: center;
+.modifyIcon {
+    font-size : 25px;
 }
 
 .modifyIcon:hover {
     color: green;
-}
-
-.deleteIcon:hover {
-    color: red;
 }
