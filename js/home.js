@@ -22,7 +22,7 @@ $(function () {
 
             //Ajout des exploitants
             while (resultat.exploitants[indexExploitant] != null) {
-                exploitant.append(resultat.exploitants[indexExploitant].toString + " ");
+                exploitant.append(resultat.exploitants[indexExploitant].toString + "<br>");
                 indexExploitant++;
             }     
             
@@ -30,7 +30,11 @@ $(function () {
             campagne.append(nomCampagne)
                     .append(exploitant)
                     .append(modifyButton);
-            
+
+            modifyButton.on("click", () => {
+                window.location.href = "/pages/campagne.html";
+            });
+
             //Ajout de la campagne
             listeCampagnes.append(campagne);
 
