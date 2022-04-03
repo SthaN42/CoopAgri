@@ -28,6 +28,10 @@ th,td {
     padding: 1vh;
 }
 
+.campagne:hover {
+    cursor: pointer;
+}
+
 .grey{
     background: #e0e4de;
 }
