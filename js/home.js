@@ -51,12 +51,10 @@ $(function () {
         console.log("La requête s'est terminée en échec. Infos : " + JSON.stringify(error));
     })
 
-    let campagnes = $(".campagnes");
+    let campagnes = $(".campagne");
 
-    campagnes.each(function(index, campagne){
-        campagne.on("click", () => {
+        campagnes.on("click", () => {
             console.log("gvddvg");
             window.location.href = "http://127.0.0.1:5500/pages/campagne.html";
         })
-    })
 });
