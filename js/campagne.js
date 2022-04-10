@@ -116,16 +116,15 @@ jQuery(function () {
     );
 
     //Suppression campagne
-    let deleteButton = $(".fa-solid fa-trash-can deleteIcon")
-    deleteButton.on("click", function () {
-        $.getJSON(
-            "http://vps.e-mingo.net/coopagri/app/index.php?c=api&a=del&n=Campagne&v=" + urlParams.get("id"),
-            () => {
-                let deleteButton = $(".fa-solid fa-trash-can deleteIcon")
-                deleteButton.on("click", function () {
-                    console.log("it worked")
-                });
-            }
-        );
+    let deleteButton = $("#deleteBtn")
+    deleteButton.on("click", function (e) {
+        e.preventDefault();
+
+        $.ajax({
+            method: "POST",
+            url: "http://vps.e-mingo.net/coopagri/app/index.php?c=api&a=del&n=Campagne&v=" + urlParams.get("id"),
+            success: () => {window.location.href = "../pages/home.html";},
+            fail: () => {alert("Erreur lors de la suppression du formulaire");}
+        })
     });
 });
