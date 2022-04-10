@@ -23,6 +23,12 @@ header {
     margin-right: auto;
 }
 
+.btn-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
 .btn {
     font-size: 1.8rem;
     width: fit-content;
