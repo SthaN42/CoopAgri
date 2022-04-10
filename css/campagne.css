@@ -5,6 +5,8 @@
 #ressources {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 35px;
 }
 
 .ressource {
@@ -13,10 +15,21 @@
     text-align: center;
     padding-bottom: 10px;
     padding-top: 10px;
+    margin-right: 10px;
+    border-radius: 30px;
 }
 
 h1 {
     text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, Courier, monospace;
+}
+
+#gauge_icon {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    flex-direction: column;
+    margin-bottom: 30px;
 }
 
 #gauge {
@@ -55,5 +68,5 @@ h1 {
 .icons {
     display: flex;
     justify-content: space-between;
-    
+
 }

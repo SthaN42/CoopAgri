@@ -3,7 +3,7 @@ jQuery(function () {
 
     $.getJSON(
         "http://vps.e-mingo.net/coopagri/app/index.php?c=api&n=Campagne&a=get&v=id|" +
-            urlParams.get("id"),
+        urlParams.get("id"),
         (response) => {
             //Affichage du titre de la campagne
             const campagne = response.result[0];
@@ -26,12 +26,16 @@ jQuery(function () {
                 let pourcentAmout = (sumsAmount / maxAmount) * 100;
                 $("#gauge_icon").prepend(
                     `<div id="gauge" style="--progress:` +
-                        pourcentAmout +
-                        `%;"></div>`
+                    pourcentAmout +
+                    `%;"></div>`
                 );
             } else {
+                pourcentAmout = 100
                 $("#gauge_icon").prepend(
-                    `<p id="error">ERREUR : Le nombre a été dépassé</p>`
+                    `<p id="error">Le nombre a été dépassé</p>
+                    <div id="gauge" style="--progress:` +
+                    pourcentAmout +
+                    `%;"></div>`
                 );
             }
 
@@ -62,22 +66,12 @@ jQuery(function () {
                 prevision = value.quantite;
                 quantite = campagne.exploitants[i].categPrevisions[0].quantite;
 
-                $("body").append(
-                    `<div>
-                        <div id="ressources">
-                            <div class="ressource" title="ress">
-                                <strong>` +
-                        libelle +
-                        `</strong> </br>
-                                <p> ` +
-                        quantite +
-                        ` / ` +
-                        prevision +
-                        ` </p>
-                                <p>TONNES</p>
-                            </div>
-                        </div>
-                    </div> </br>`
+                $("#ressources").append(
+                    `<div class="ressource" title="ress">
+                        <strong>` + libelle + `</strong> </br>
+                        <p> ` + quantite + ` / ` + prevision + ` </p>
+                        <p>TONNES</p>
+                    </div>`
                 );
                 i++;
             }
@@ -103,7 +97,7 @@ jQuery(function () {
                     $(this).attr("title", "");
 
                     $("body").append(
-                        `<p id='details'> Exploitant(s) <br/>` + exploitants + `</p>`
+                        `< p id = 'details' > Exploitant(s) < br /> ` + exploitants + `</p > `
                     );
                     $("#details")
                         .css("top", e.pageY - xOffset + "px")
