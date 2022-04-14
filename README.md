@@ -1,11 +1,13 @@
 # CoopAgri
 
 ## Développé par
-Nathan GUERIN
-Maxime NGUYEN
-Tom DUCHESNE
-Théo PETIT
-Léo FETTER
+- Nathan GUERIN
+- Maxime NGUYEN
+- Tom DUCHESNE
+- Théo PETIT
+- Léo FETTER
+
+----
 
 ## Fonctionnalités
 ### Affichage des campagnes
